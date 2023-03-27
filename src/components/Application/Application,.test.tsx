@@ -4,7 +4,7 @@ import Application from './application';
 describe('Application', () => {
   test('renders correctly', () => {
     render(<Application />);
-    //---------Querying Elements using getByRole Method------------------
+    //---------Querying/Finding Elements using getByRole Method------------------ [1]
 
     // Querying different elements which fall under same role using the getByRole Options object
 
@@ -47,5 +47,40 @@ describe('Application', () => {
 
     const submitButtonElement = screen.getByRole('button');
     expect(submitButtonElement).toBeInTheDocument();
+
+    //---------Querying/Findind Elements using getByPlaceholderText Method------------------ [2]
+
+    const placeholderElement = screen.getByPlaceholderText('Fullname');
+    expect(placeholderElement).toBeInTheDocument();
+
+    //---------Querying/Findind Elements using getByText Method------------------ [3]
+
+    const paragraphElement = screen.getByText('All fields are mandatory');
+    expect(paragraphElement).toBeInTheDocument();
+
+    //---------Querying/Findind Elements using getByLabelText Method------------------- [4]
+    const nameElement3 = screen.getByLabelText('Name');
+    expect(nameElement3).toBeInTheDocument();
+
+    //---------Querying/Findind Elements using getByDisplayValue Method------------------- [5]
+
+    const nameElement4 = screen.getByDisplayValue('kotesh');
+    expect(nameElement4).toBeInTheDocument();
+
+    //---------Querying/Findind Elements using getByAltText Method------------------- [6]
+    // This query method returns the element that has the alt text passed into this method
+    // Example elements which will covered by this method are :- image, input, Aria, Custom HTML elements
+    const imageElement = screen.getByAltText('human-profile');
+    expect(imageElement).toBeInTheDocument();
+
+    //---------Querying/Findind Elements using getByTitle Method------------------- [7]
+    // This method gets the element with matching title attribute value
+    const closeElement = screen.getByTitle('close');
+    expect(closeElement).toBeInTheDocument();
+
+    //---------Querying/Findind Elements using getByTestId Method------------------- [8]
+    //  This method gets element with matching data-testid attribute :)
+    const customElement = screen.getByTestId('custom-element');
+    expect(customElement).toBeInTheDocument();
   });
 });

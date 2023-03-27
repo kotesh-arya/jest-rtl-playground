@@ -3,11 +3,21 @@ const Application = () => {
     <>
       <h1>Job Application Form</h1>
       <h2>Section 1</h2>
+      <p>All fields are mandatory</p>
+      <span title="close">X</span>
+      <img src="https://via.placeholder.com" alt="human-profile" />
       <form action="">
         <div>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" />
+          <input
+            type="text"
+            id="name"
+            placeholder="Fullname"
+            value="kotesh"
+            onChange={() => {}}
+          />
         </div>
+        <div data-testid="custom-element">Custom ELement</div>
         <div>
           <label htmlFor="bio">Bio</label>
           <textarea name="bio" id="bio"></textarea>
